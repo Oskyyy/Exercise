@@ -2,45 +2,33 @@
 <html>
   <body>
     <script>
-      function printSum(a, b) {
-        console.log(a + b);
-      }
-
-      printSum(4, 5);
-
-      function printNumbers(a, b) {
-        for (let i = a; i <= b; i++) {
-          console.log(i);
+      function speak(before, after) {
+        if(before && typeof before === "function") {
+          before();
+        }
+        console.log("Mowa...");
+        if(after && typeof after === "function") {
+          after();
         }
       }
 
-      printNumbers(4, 5);
-
-      function printStars(num) {
-        let stars = "";
-        for (let i = 0; i < num; i++) {
-          stars += "*";
-        }
-        console.log(stars);
+      function cheerKids() {
+        console.log("Hej, dzieci");
+      }
+      function cheerAll() {
+        cheerKids();
+        console.log("Witam rodziców");
+      }
+      function bless() {
+        console.log("Zdrowia!");
       }
 
-      printStars(5);
-
-      function printSquare(size) {
-        for (let i = 0; i < size; i++) {
-          printStars(size);
-        }
-      }
-
-      printSquare(2);
-
-      function printTriangle(size) {
-        for (let i = 1; i <= size; i++) {
-          printStars(i);
-        }
-      }
-
-      printTriangle(5);
+      speak();
+      speak(cheerKids);
+      speak(cheerAll);
+      speak(cheerAll, bless);
+      speak(bless);
+      speak(undefined, bless);
     </script>
   </body>
 </html>
