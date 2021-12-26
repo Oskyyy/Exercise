@@ -2,20 +2,38 @@
 <html>
   <body>
     <script>
-      let obj = {};
-      const obj2 = obj;
+      class BankAccount {
+        constructor() {
+          this.balance = 0;
+        }
+        deposit(amount) {
+          this.balance += amount;
+          return this.balance;
+        }
+        withdraw(amount) {
+          amount = Math.min(amount, this.balance);
+          this.balance -= amount;
+          return amount;
+        }
+        currentBalance() {
+          return this.balance;
+        }
+      }
 
-      obj.name = {"Alek"};
-      console.log(obj.name); // Alek
-      console.log(obj2.name); // Alek
+      const account = new BankAccount();
+      console.log(account.currentBalance()); // 0
 
-      const obj3 = { name: obj.name };
-      console.log(obj3); // {name: "Alek"}
+      const balance = account.deposit(1000);
+      console.log(balance); // 1000
+      console.log(account.currentBalance()); // 1000
 
-      obj = { size: "S" };
-      console.log(obj.name); // undefined
-      console.log(obj.size); // S
-      console.log(obj2.name); // Alek
+      const withdrawed1 = account.withdraw(300);
+      console.log(withdrawed1); // 300
+      console.log(account.currentBalance()); // 700
+
+      const withdrawed2 = account.withdraw(1500);
+      console.log(withdrawed2); // 700
+      console.log(account.currentBalance()); // 0
     </script>
   </body>
 </html>
