@@ -2,24 +2,45 @@
 <html>
   <body>
     <script>
-    let cartList = "";
-      let fruits = "Figa";
-      let price = 0;
+      function printSum(a, b) {
+        console.log(a + b);
+      }
 
-      fruits += " Gruszka";
-      price += 3.2;
+      printSum(4, 5);
 
-      console.log(fruits);
-      console.log(price);
+      function printNumbers(a, b) {
+        for (let i = a; i <= b; i++) {
+          console.log(i);
+        }
+      }
 
-      fruits += " Banan";
-      price += 2.8;
+      printNumbers(4, 5);
 
-      console.log(fruits);
-      console.log(price);
+      function printStars(num) {
+        let stars = "";
+        for (let i = 0; i < num; i++) {
+          stars += "*";
+        }
+        console.log(stars);
+      }
 
-      price -= 1.4;
-      console.log(price);
+      printStars(5);
+
+      function printSquare(size) {
+        for (let i = 0; i < size; i++) {
+          printStars(size);
+        }
+      }
+
+      printSquare(2);
+
+      function printTriangle(size) {
+        for (let i = 1; i <= size; i++) {
+          printStars(i);
+        }
+      }
+
+      printTriangle(5);
     </script>
   </body>
 </html>
