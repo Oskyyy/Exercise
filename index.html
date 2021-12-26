@@ -2,33 +2,20 @@
 <html>
   <body>
     <script>
-      function speak(before, after) {
-        if(before && typeof before === "function") {
-          before();
-        }
-        console.log("Mowa...");
-        if(after && typeof after === "function") {
-          after();
-        }
-      }
+      let obj = {};
+      const obj2 = obj;
 
-      function cheerKids() {
-        console.log("Hej, dzieci");
-      }
-      function cheerAll() {
-        cheerKids();
-        console.log("Witam rodziców");
-      }
-      function bless() {
-        console.log("Zdrowia!");
-      }
+      obj.name = {"Alek"};
+      console.log(obj.name); // Alek
+      console.log(obj2.name); // Alek
 
-      speak();
-      speak(cheerKids);
-      speak(cheerAll);
-      speak(cheerAll, bless);
-      speak(bless);
-      speak(undefined, bless);
+      const obj3 = { name: obj.name };
+      console.log(obj3); // {name: "Alek"}
+
+      obj = { size: "S" };
+      console.log(obj.name); // undefined
+      console.log(obj.size); // S
+      console.log(obj2.name); // Alek
     </script>
   </body>
 </html>
